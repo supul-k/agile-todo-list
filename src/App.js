@@ -1,8 +1,12 @@
 import "./App.css";
 import AddList from "./pages/AddList";
 import List from "./pages/List";
+import { useState } from "react";
 
 function App() {
+
+  const[allPeople, setAllPeople] = useState([]);
+
   return (
     <>
       <div
@@ -14,7 +18,7 @@ function App() {
           textAlign: "center",
         }}
       >
-        <AddList />
+        <AddList allPeople={allPeople}  setAllPeople={setAllPeople}/>
       </div>
       <div
         style={{
@@ -25,7 +29,7 @@ function App() {
           textAlign: "center",
         }}
       >
-        <List />
+        <List allPeople={allPeople}/>
       </div>
     </>
   );

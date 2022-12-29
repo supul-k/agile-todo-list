@@ -1,11 +1,16 @@
 import { useState } from "react";
 
-const AddList = () => {
+const AddList = ({setAllPeople,allPeople}) => {
   const [name, setName] = useState("");
 
   const enterName = (e) => {
     setName(e.target.value);
   };
+
+  const setPeople = () => {
+    setAllPeople([...allPeople, name]);
+    setName('');
+  }
 
   return (
     <>
@@ -17,7 +22,10 @@ const AddList = () => {
       />
       <br />
       <br />
-      <button style={{ background: "yellow" }} disabled={!name}>
+      <button 
+            style={{ background: "yellow" }}
+            disabled={!name}
+            onClick={setPeople}        >
         Add People
       </button>
     </>
